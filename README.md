@@ -54,6 +54,7 @@ Skills are organized into practical, flat categories:
 ```
 letta/                   # Letta product ecosystem
 ├── agent-development/   # Agent design and architecture
+├── compaction-prompts/  # Configure agent compaction prompts and summaries
 ├── conversations/       # Conversation management
 ├── creating-letta-code-channels/ # Letta Code channel/plugin development
 ├── fleet-management/    # Managing multiple agents
@@ -107,6 +108,7 @@ meta/                        # Skills about the skill system
 ### Letta
 
 - **agent-development** - Comprehensive guide for designing and building Letta agents (architecture selection, memory design, model selection, tool configuration)
+- **compaction-prompts** - Configure Letta agent compaction settings and custom summarization prompts
 - **conversations** - Managing agent conversations and message history
 - **creating-letta-code-channels** - Building and debugging Letta Code channel adapters and dynamic user channel plugins
 - **fleet-management** - Managing and orchestrating multiple Letta agents
