@@ -58,6 +58,7 @@ letta/                   # Letta product ecosystem
 ├── creating-letta-code-channels/ # Letta Code channel/plugin development
 ├── fleet-management/    # Managing multiple agents
 ├── importing-chatgpt-memory/ # Review ChatGPT exports before writing Letta memory
+├── navigating-chatgpt-history/ # Navigate archived ChatGPT/Claude exports on demand without full ingestion
 ├── letta-api-client/    # Building apps with Letta SDK (Python/TypeScript)
 ├── letta-configuration/ # Model and provider configuration
 └── letta-filesystem-to-memfs/ # Deprecated Filesystem to MemFS/QMD migration
@@ -110,6 +111,7 @@ meta/                        # Skills about the skill system
 - **creating-letta-code-channels** - Building and debugging Letta Code channel adapters and dynamic user channel plugins
 - **fleet-management** - Managing and orchestrating multiple Letta agents
 - **importing-chatgpt-memory** - Reviewing ChatGPT exports by rendering conversations into readable markdown before importing durable memory into Letta
+- **navigating-chatgpt-history** - Navigating archived ChatGPT or Claude-style exports on demand, preserving them as reference memory instead of forcing full upfront digestion
 - **letta-api-client** - Building applications with the Letta API using the Python and TypeScript SDKs (agents, tools, memory, multi-user patterns)
 - **letta-configuration** - Configure LLM models and providers for Letta agents and servers
 - **letta-filesystem-to-memfs** - Migrate deprecated Letta Filesystem folders/files to MemFS markdown corpora with chunking, lexical search, and QMD semantic search
