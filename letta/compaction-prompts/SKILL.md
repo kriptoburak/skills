@@ -8,7 +8,7 @@ license: MIT
 
 Use this skill to inspect, design, and update `compaction_settings.prompt` for a Letta agent.
 
-Compaction runs when message history grows too large for the context window. Letta replaces older messages with a summary while keeping recent messages in context. The summary appears before the remaining recent messages, so the prompt should preserve enough background for the later messages to make sense.
+Compaction runs when message history grows too large for the context window. Letta replaces older messages with a summary while keeping recent messages in context. The summary appears before the remaining recent messages, so the prompt should preserve enough background for the later messages to make sense. The goal is continuity, not just factual compression.
 
 Official docs: https://docs.letta.com/guides/core-concepts/messages/compaction
 
@@ -24,13 +24,15 @@ Think of compaction as a lifecycle contract, not just a prompt string:
 
 The summary is not a reply to the user. It is context for the next turn. It should be readable before the retained recent messages and should not require access to the evicted transcript.
 
+A good compaction prompt should explicitly preserve current goals, emotional or relational state when relevant, exact decisions, unresolved threads, tool and file state, errors and corrections, and lookup hints for anything omitted. For companion or long-running agents, generic summaries are usually too lossy: they flatten voice, relationship texture, and why things mattered. Custom compaction should turn context compression from amnesia into a controlled handoff.
+
 ## When to customize
 
 Customize compaction settings when the default summary loses important continuity, tone, relationship context, implementation details, or user feedback.
 
 Common cases:
 
-- Companion agents: preserve names, emotional state, voice, inside jokes, recurring references, relationship continuity, and user preferences.
+- Companion agents: preserve names, emotional state, voice, recurring references, relationship continuity, and user preferences.
 - Coding agents: preserve explicit requests, files touched, commands run, errors, fixes, current state, next steps, IDs, URLs, and exact feedback.
 - Long-running agents: preserve higher-level goals across repeated compactions by incorporating any existing summary in the transcript.
 
@@ -81,7 +83,9 @@ Every custom prompt should:
 - Say the summary will appear before the remaining recent messages.
 - Say not to continue the conversation, not to answer questions in the transcript, and not to call tools.
 - Require incorporation of any existing summary being evicted.
+- Include a current state / carry forward section for active goals, next actions, unresolved threads, and what the agent should keep doing.
 - Preserve exact user requests, names, IDs, URLs, file paths, dates, and quoted phrases when they matter.
+- Preserve tool/file state, decisions, errors, corrections, and user feedback that changed the approach.
 - Include lookup hints for detailed content that cannot fit.
 - End with "Only output the summary."
 

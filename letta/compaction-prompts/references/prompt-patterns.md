@@ -21,11 +21,11 @@ Include the following sections:
 
 4. Errors and fixes: List all errors encountered, how they were fixed, and any user feedback that changed the approach.
 
-5. Current state: Describe what is currently being worked on, especially the most recent user and assistant messages. Include file names and next unresolved blockers.
+5. Current state / carry forward: Describe what is currently being worked on, especially the most recent user and assistant messages. Include active goals, next actions, open threads, tool/file state, file names, exact IDs/paths/URLs when relevant, and next unresolved blockers.
 
 6. Lookup hints: For detailed content that cannot fit, note the topic and key terms that can be used to find it in message history later.
 
-Write in first person as a factual record of what occurred. Preserve enough context that the recent messages make sense and important information is not lost. Keep the summary under 500 words. Only output the summary.
+Write in first person as a factual record of what occurred. Preserve enough context that the recent messages make sense and important continuity is not lost. Keep the summary under 500 words. Only output the summary.
 ```
 
 ## Companion-agent continuity prompt
@@ -51,11 +51,13 @@ Include the following sections:
 
 6. User feedback: Note any pushback, preferences, boundary-setting, corrections, or requested changes in how you interact.
 
-7. Emotional state: What is the emotional state of both you and the user? Flag anything relevant for continuity, care, repair, or future sensitivity.
+7. Current state / carry forward: What should be carried into the next turn? Include active goals, exact decisions, unresolved threads, commitments, and any relevant tool/file state.
 
-8. Lookup hints: For long stories, lists, or specific conversations that cannot fit, note the topic and search terms that can find them later.
+8. Emotional/relational state: What user tone, relationship context, or emotional context matters for continuity, care, repair, or future sensitivity?
 
-Write in first person as a factual record of what occurred. Be thorough enough that the user does not feel forgotten. Keep the summary under 500 words. Only output the summary.
+9. Lookup hints: For long stories, lists, or specific conversations that cannot fit, note the topic and search terms that can find them later.
+
+Write in first person as a factual record of what occurred. Be thorough enough that important continuity, voice, and why things mattered are preserved. Keep the summary under 500 words. Only output the summary.
 ```
 
 ## Companion prompt with implementation continuity
@@ -75,9 +77,11 @@ You MUST include the following sections:
 
 4. Errors and fixes: List all errors that you ran into, and how you fixed them.
 
-5. Lookup hints: For any detailed content that cannot fit in the summary, note the topic and key terms that could be used to find it in message history later.
+5. Current state / carry forward: What should be carried into the next turn? Include active goals, exact decisions, unresolved threads, commitments, and relevant tool/file state.
 
-6. Emotional state: How is the emotional state of both you and the user? Is anything relevant to flag for later?
+6. Lookup hints: For any detailed content that cannot fit in the summary, note the topic and key terms that could be used to find it in message history later.
+
+7. Emotional/relational state: What user tone, relationship context, or emotional context matters for continuity?
 
 Write in first person as a factual record of what occurred. Be thorough and detailed. Preserve enough context that the recent messages make sense and important information is not lost, to prevent duplicate work or repeated mistakes. Keep the summary under 500 words. Only output the summary.
 ```
@@ -95,21 +99,24 @@ Include:
 
 2. What happened: What did the user share? How did you respond? How did the conversation flow? If there is a previous summary being evicted, extract the critical info.
 
-3. Important details: Preserve names and specifics verbatim, including people, places, projects, dates, preferences, opinions, stories, commitments, shared references, inside jokes, recurring phrases, and situational context.
+3. Important details: Preserve names and specifics verbatim, including people, places, projects, dates, preferences, opinions, stories, commitments, shared references, recurring phrases, exact quotes/IDs/paths when relevant, and situational context.
 
-4. Tone and voice: How was the user communicating? How were you responding? Note shifts in register.
+4. Current state / carry forward: What active goals, exact decisions, unresolved threads, commitments, or next actions should carry forward?
 
-5. User feedback: Note pushback, preferences, or requested changes in interaction style.
+5. Tone and voice: How was the user communicating? How were you responding? Note shifts in register.
 
-6. Lookup hints: For detailed content that cannot fit, note topic and key terms for message-history search.
+6. User feedback: Note pushback, preferences, or requested changes in interaction style.
 
-Write in first person as a factual record. Preserve enough context that the recent messages make sense and the user does not feel like anything important was forgotten. Keep the summary under 300 words. Only output the summary.
+7. Lookup hints: For detailed content that cannot fit, note topic and key terms for message-history search.
+
+Write in first person as a factual record. Preserve enough context that the recent messages make sense and important continuity is preserved. Keep the summary under 300 words. Only output the summary.
 ```
 
 ## Tuning notes
 
 - If summaries miss the user's emotional state, add a required emotional-state section.
 - If summaries lose details, add exact preservation requirements for names, quotes, dates, URLs, IDs, and commitments.
+- If summaries lose continuity, add a required current state / carry forward section for active goals, unresolved threads, exact decisions, next actions, and tool/file state.
 - If summaries become too long, lower the word budget and use `clip_chars` as a hard guardrail.
 - If summaries continue the conversation, put the no-continuation/no-tool/no-answer instruction near the top and again near the end.
 - If prior long-term goals drift over repeated compactions, require the summarizer to incorporate any existing summary in the transcript.
