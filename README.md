@@ -45,7 +45,7 @@ Or, with HTTPS:
 git clone https://github.com/letta-ai/skills.git .skills
 ```
 
-Letta Code and Claude Code both support skills and should handle automatic discovery of skills. Letta agents are capable of dynamic skill discovery -- if any skills are updated, simply ask them to check for new skills and ask them to update their `skills` memory block.
+Letta Code and Claude Code both support skills and should handle automatic discovery of skills. Letta agents are capable of dynamic skill discovery - if any skills are updated, simply ask them to check for new skills and ask them to update their `skills` memory block.
 
 ## Repository Structure
 
@@ -95,6 +95,7 @@ tools/                       # General tool integrations
 ├── spreadsheet/             # Excel/spreadsheet authoring
 ├── transcribe/              # Audio transcription
 ├── visual-identity/         # Persistent agent avatars via Flux Kontext
+├── x-twitter-scraper/       # Xquik X data API, MCP, webhooks, and automation
 └── yelp-search/             # Yelp business search
 
 meta/                        # Skills about the skill system
@@ -150,6 +151,7 @@ meta/                        # Skills about the skill system
 - **spreadsheet** - Create and edit Excel spreadsheets
 - **transcribe** - Audio transcription
 - **visual-identity** - Maintain persistent agent avatars with Flux Kontext
+- **x-twitter-scraper** - Xquik X data API, MCP, webhooks, and automation
 - **yelp-search** - Searching and retrieving business information from Yelp
 
 ### Meta
@@ -198,7 +200,7 @@ Skills can optionally include:
 
 ## License
 
-MIT by default — see the root [LICENSE](LICENSE) file.
+MIT by default - see the root [LICENSE](LICENSE) file.
 
 Individual skills may carry their own `LICENSE` file when they originate from upstream projects (e.g. Anthropic-authored skills remain Apache 2.0; skills from other maintainers keep their original terms). Per-skill `LICENSE` files take precedence over the root license for that directory.
 
