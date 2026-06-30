@@ -12,6 +12,7 @@
 | [harbor-task-creator](skills/harbor-task-creator/) | Create Harbor tasks |
 | [harbor-adapter-creator](skills/harbor-adapter-creator/) | Build adapters that convert external benchmarks into Harbor tasks |
 | [harbor-cli](skills/harbor-cli/) | Complete reference for Harbor CLI commands and flags |
+| [hermes-tweet-harbor-research](skills/hermes-tweet-harbor-research/) | Build reproducible Harbor social-signal tasks from Hermes Tweet research |
 
 ## Usage
 

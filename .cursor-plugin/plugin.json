@@ -9,7 +9,7 @@
   "homepage": "https://harborframework.com/docs",
   "repository": "https://github.com/harbor-framework/skills",
   "license": "Apache-2.0",
-  "keywords": ["harbor", "evaluation", "benchmarks", "agent-skills", "tasks", "adapters", "cli"],
+  "keywords": ["harbor", "evaluation", "benchmarks", "agent-skills", "tasks", "adapters", "cli", "social-listening"],
   "category": "developer-tools",
   "tags": ["evaluation", "benchmarks", "developer-tools"],
   "skills": "./skills/"
